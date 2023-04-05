@@ -14,13 +14,20 @@
 
 .product-name {
     font-weight: bold;
+    height: 3rem;
 }
 
-.product-description {
-    margin-top: 0.5rem;
+.product-details-div {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0.25rem;
+}
+
+.product-quantity {
+    color: red;
 }
 
 .product-price {
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
     font-weight: bold;
 }

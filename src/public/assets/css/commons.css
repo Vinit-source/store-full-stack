@@ -7,6 +7,10 @@ h1 {
     cursor: pointer;
 }
 
+p {
+    margin: 0px;
+}
+
 .store-title {
     flex: 1;
 }

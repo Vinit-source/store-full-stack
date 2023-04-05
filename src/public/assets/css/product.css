@@ -16,11 +16,12 @@
     font-weight: bold;
 }
 
-.product-description {
-    margin-top: 0.5rem;
+.product-details-div {
+    display: flex;
+    gap: 5px;
 }
 
 .product-price {
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
     font-weight: bold;
 }
