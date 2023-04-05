@@ -1,0 +1,24 @@
+#orders {
+    display: block;
+}
+
+.order-card {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.order-name {
+    font-weight: bold;
+}
+
+.order-details-div {
+    display: flex;
+    gap: 5px;
+}
+
+.order-price {
+    /* margin-top: 0.5rem; */
+    font-weight: bold;
+}

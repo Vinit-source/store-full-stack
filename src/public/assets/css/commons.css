@@ -22,8 +22,9 @@ header {
 }
 
 .profile {
-    margin-right: 20px;
+    margin-right: 2rem;
     cursor: pointer;
+    flex-basis: 5rem;
 }
 
 
@@ -44,7 +45,7 @@ header {
     /* Center the content horizontally */
     align-items: center;
     display: flex;
-    padding: 10px;
+    padding: 1rem;
     cursor: pointer;
 }
 

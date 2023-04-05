@@ -37,7 +37,7 @@ class User {
 
 	static verify(userData, callback) {
 		const { phone, password } = userData;
-		// console.log([phone, password]);
+		console.log([phone, password]);
 		db.query('SELECT customer_id, password FROM customers WHERE phone = ?',
 			phone,
 			(err, results) => {
@@ -60,23 +60,17 @@ class User {
 			});
 	}
 
-	static getOrdersByPhone(phone, callback) {
-		// console.log([phone, password]);
-		db.query(`SELECT o.customer_id, o.order_id, p.product_id
+	static getOrdersById(customer_id, callback) {
+		// console.log([customer_id, password]);
+		db.query(`SELECT o.customer_id, o.order_id, p.product_id, p.name, o.order_date, oi.quantity, oi.unit_price
 		FROM store.orders AS o
 		INNER JOIN store.order_items AS oi
 		ON o.order_id = oi.order_id 
 		INNER JOIN store.products AS p
 		ON oi.product_id = p.product_id
-		WHERE o.order_id IN (
-		  SELECT order_id FROM store.orders
-		  WHERE customer_id = (
-			SELECT customer_id FROM store.customers
-			WHERE phone = ?
-		  )
-		)
+		WHERE o.customer_id = ?
 		GROUP BY o.customer_id, o.order_id, p.product_id;`,
-			phone,
+			customer_id,
 			(err, results) => {
 				if (err) {
 					callback(err, null);

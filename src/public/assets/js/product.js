@@ -6,7 +6,7 @@ const baseURL = 'http://localhost:3000'
 //     return products;
 // };
 
-const renderProduct = async (product) => {
+const renderProduct = (product) => {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
@@ -48,7 +48,7 @@ const init = () => {
     fetch(`${baseURL}/api/products`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             data.forEach(renderProduct);
         })
         .catch(error => console.error(error));

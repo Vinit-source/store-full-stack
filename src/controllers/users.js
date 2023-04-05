@@ -40,6 +40,7 @@ exports.createUser = (req, res) => {
 exports.verifyUser = (req, res) => {
   const user = req.body
   User.verify(user, (err, result) => {
+    console.log(result);
     if (err == "User not found!") {
       console.error(err);
       res.status(404).json({ error: err });
@@ -56,6 +57,7 @@ exports.verifyUser = (req, res) => {
 exports.getUserOrders = (req, res) => {
   const { id } = req.params
   User.getOrdersById(id, (err, result) => {
+    console.log(result);
     if (err) {
       console.error(err);
       res.status(500).json({ error: 'Server error' });

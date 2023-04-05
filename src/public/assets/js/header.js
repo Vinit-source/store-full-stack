@@ -1,7 +1,7 @@
 // $(function () {
 //     $("#header").load("../../../src/pages/header.html");
 // });
-const userLogin = JSON.parse(window.localStorage.getItem("userId"));
+const userId = JSON.parse(window.localStorage.getItem("userId"));
 const profile = document.querySelector('.profile');
 const title = document.querySelector('.store-title');
 
@@ -9,7 +9,7 @@ title.addEventListener('click', () => {
     window.location.href = './index.html';
 });
 
-if (userLogin) {
+if (userId) {
     profile.innerHTML = `<i class="fa-solid fa-user fa-xl"></i>`;
 
     const userIcon = document.querySelector('.fa-xl');
