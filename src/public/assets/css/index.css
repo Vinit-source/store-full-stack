@@ -1,0 +1,26 @@
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-card {
+    width: 300px;
+    margin: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-description {
+    margin-top: 0.5rem;
+}
+
+.product-price {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}

@@ -14,15 +14,23 @@ form.addEventListener('submit', async (e) => {
             'Content-Type': 'application/json'
         },
         body
-    });
+    })
+        .then(res => {
+            if (res.ok) {
+                alert('Login successful!');
+                form.reset();
+                window.location.href = "../../../index.html";
+            } else {
+                alert('Login failed.');
+            }
+            return res.json();
+        })
+        .then(data => {
+            // console.log(data.userId);
+            window.localStorage.setItem("userId", data.userId);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
-    if (response.ok) {
-        alert('Login successful!');
-        form.reset();
-        const user = JSON.parse(body);
-        localStorage.setItem("user", { "phone": user.phone, "loggedIn": response.cookie.loggedIn });
-        // window.location.href = "../../../index.html";
-    } else {
-        alert('Login failed.');
-    }
 });

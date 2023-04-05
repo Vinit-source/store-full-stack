@@ -1,12 +1,12 @@
 // $(function () {
-//     $("#header").load("../../../src/pages/header.html");
+//     $("#header").load("../../.../../pages/header.html");
 // });
 const userLogin = JSON.parse(window.localStorage.getItem("userId"));
 const profile = document.querySelector('.profile');
 const title = document.querySelector('.store-title');
 
 title.addEventListener('click', () => {
-    window.location.href = './index.html';
+    window.location.href = '../../../index.html';
 });
 
 if (userLogin) {
@@ -24,8 +24,6 @@ if (userLogin) {
         dropdownContent.style.display = 'none';
     });
 
-
-
     const dropdownContent = document.querySelector('.menu');
     dropdownContent.addEventListener('mouseover', () => {
         dropdownContent.style.display = 'flex';
@@ -38,17 +36,15 @@ if (userLogin) {
 
     const logout = document.getElementById("logout");
     logout.addEventListener('click', () => {
-        window.localStorage.removeItem("userId");
-        window.location.reload();
+        window.localStorage.removeItem("userId")
     });
 
 
     const myAccount = document.getElementById("my-account");
     myAccount.addEventListener('click', () => {
-        window.location.href = "./src/pages/user/myaccount.html";
+        window.location.href = "./myaccount.html";
     });
 
-
 } else {
-    profile.innerHTML = `<button onclick="window.location.href = './src/pages/user/login.html'">Login</button>`;
-}
+    profile.innerHTML = `<button onclick="window.location.href = './login.html'">Login</button>`;
+}    

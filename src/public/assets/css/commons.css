@@ -4,37 +4,52 @@ body {
 
 h1 {
     text-align: center;
+    cursor: pointer;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-}
-
-
-.breadcrumb {
-    /* Content is centered vertically */
-    align-items: center;
-    display: flex;
-    margin: 10px auto;
-    width: 300px;
-    justify-content: center;
+.store-title {
     flex: 1;
 }
 
-.breadcrumb__item {
-    margin: 0 0.5rem;
-
-    /* Used to position the separator between items */
+header {
+    display: flex;
+    align-items: center;
     position: relative;
 }
 
-.breadcrumb__item:not(:last-child)::after {
-    /* Absolute position */
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translate(0.5rem, 0px);
+.profile {
+    margin-right: 20px;
+    cursor: pointer;
+}
 
-    content: '|';
+
+.menu {
+    display: none;
+    flex-direction: column;
+
+    /* Border */
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+
+}
+
+.menu__item {
+    /* Center the content horizontally */
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.menu__item:hover {
+    background-color: lightgrey;
+}
+
+.menu__divider {
+    border-bottom: 1px solid #d1d5db;
+    height: 1px;
 }

@@ -38,7 +38,7 @@ class User {
 	static verify(userData, callback) {
 		const { phone, password } = userData;
 		// console.log([phone, password]);
-		db.query('SELECT password FROM customers WHERE phone = ?',
+		db.query('SELECT customer_id, password FROM customers WHERE phone = ?',
 			phone,
 			(err, results) => {
 				if (err) {
@@ -48,15 +48,42 @@ class User {
 					callback(error, null);
 				}
 				else {
-					// console.log(results[0].password, password);
+					// Login successful
 					if (results[0].password == password) {
-						callback(null, null);
+						callback(null, results[0].customer_id);
 					} else {
+						// Password does not match
 						const error = "Password does not match!"
 						callback(error, null);
 					}
 				}
 			});
+	}
+
+	static getOrdersByPhone(phone, callback) {
+		// console.log([phone, password]);
+		db.query(`SELECT o.customer_id, o.order_id, p.product_id
+		FROM store.orders AS o
+		INNER JOIN store.order_items AS oi
+		ON o.order_id = oi.order_id 
+		INNER JOIN store.products AS p
+		ON oi.product_id = p.product_id
+		WHERE o.order_id IN (
+		  SELECT order_id FROM store.orders
+		  WHERE customer_id = (
+			SELECT customer_id FROM store.customers
+			WHERE phone = ?
+		  )
+		)
+		GROUP BY o.customer_id, o.order_id, p.product_id;`,
+			phone,
+			(err, results) => {
+				if (err) {
+					callback(err, null);
+				} else {
+					callback(null, results);
+				}
+			})
 	}
 }
 
