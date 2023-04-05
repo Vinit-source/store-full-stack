@@ -1,0 +1,3 @@
+- Add `password` column to `customers`. 
+- Add UNIQUE to `phone` in `customers`.
+- Add Default `0` to `points` column in `customers`.

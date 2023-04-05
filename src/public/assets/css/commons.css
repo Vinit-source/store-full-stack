@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+
+.breadcrumb {
+    /* Content is centered vertically */
+    align-items: center;
+    display: flex;
+    margin: 10px auto;
+    width: 300px;
+    justify-content: center;
+    flex: 1;
+}
+
+.breadcrumb__item {
+    margin: 0 0.5rem;
+
+    /* Used to position the separator between items */
+    position: relative;
+}
+
+.breadcrumb__item:not(:last-child)::after {
+    /* Absolute position */
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(0.5rem, 0px);
+
+    content: '|';
+}
