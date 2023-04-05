@@ -10,6 +10,7 @@
     border: 1px solid #ddd;
     border-radius: 0.5rem;
     padding: 1rem;
+    background-color: rgb(216, 233, 239);
 }
 
 .product-name {
