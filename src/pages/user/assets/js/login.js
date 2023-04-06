@@ -2,18 +2,15 @@ const form = document.getElementById('login-form');
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const phone = document.getElementById("phone");
-    const password = document.getElementById("password");
-
     const formData = new FormData(form);
     const body = JSON.stringify(Object.fromEntries(formData));
     const baseURL = "http://localhost:3000"
-    const response = await fetch(`${baseURL}/api/users/login`, {
+    fetch(`${baseURL}/api/users/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body
+        body    // body has all values of the form. They are passed as parameters to fetch API
     })
         .then(res => {
             if (res.ok) {

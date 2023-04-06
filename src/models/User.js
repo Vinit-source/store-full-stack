@@ -1,29 +1,9 @@
 const db = require('../utils/database');
 
 class User {
-	static getAll(callback) {
-		db.query('SELECT * FROM users', (err, results) => {
-			if (err) {
-				callback(err, null);
-			} else {
-				callback(null, results);
-			}
-		});
-	}
-
-	static getById(id, callback) {
-		db.query('SELECT * FROM users WHERE id = ?', [id], (err, results) => {
-			if (err) {
-				callback(err, null);
-			} else {
-				callback(null, results[0]);
-			}
-		});
-	}
 
 	static insertNew(userData, callback) {
 		const { first_name, last_name, dob, phone, address, city, state, password } = userData;
-		// console.log([first_name, last_name, dob, phone, address, city, state, password]);
 		db.query('INSERT INTO customers (first_name, last_name, birth_date, phone, address, city, state, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
 			[first_name, last_name, dob, phone, address, city, state, password],
 			(err, results) => {
@@ -37,7 +17,7 @@ class User {
 
 	static verify(userData, callback) {
 		const { phone, password } = userData;
-		console.log([phone, password]);
+		// console.log([phone, password]);
 		db.query('SELECT customer_id, password FROM customers WHERE phone = ?',
 			phone,
 			(err, results) => {
@@ -81,4 +61,5 @@ class User {
 	}
 }
 
+// require('User.js') in any other file will load `User` class into that file.
 module.exports = User;

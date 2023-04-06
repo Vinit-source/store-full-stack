@@ -11,6 +11,7 @@ exports.getAllProducts = (req, res) => {
     });
 };
 
+// Not implemented
 exports.getProductById = (req, res) => {
     const { id } = req.params;
     Product.getById(id, (err, product) => {

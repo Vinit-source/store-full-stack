@@ -14,18 +14,6 @@ connection.connect((err) => {
   console.log('Connected to MySQL database!');
 });
 
+// require('database') in any other file will load `connection` variable into that file.
 module.exports = connection;
 
-// const mysql = require('mysql2');
-
-// const pool = mysql.createPool({
-//   host: process.env.DB_HOST || 'localhost',
-//   user: process.env.DB_USER || 'root',
-//   password: process.env.DB_PASSWORD || '123456',
-//   database: process.env.DB_NAME || 'store',
-//   waitForConnections: true,
-//   connectionLimit: 10,
-//   queueLimit: 0,
-// });
-
-// module.exports = pool.promise();

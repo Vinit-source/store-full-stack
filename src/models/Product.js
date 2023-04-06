@@ -3,6 +3,7 @@ const db = require('../utils/database');
 class Product {
     static getAll(callback) {
         db.query('SELECT * FROM products', (err, results) => {
+            // console.log(results);
             if (err) {
                 callback(err, null);
             } else {

@@ -18,10 +18,10 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   methods: "GET, POST, DELETE",
 };
+
+// The following lines are the middlewares that run in the time when a request is made and the response is given. 
 app.use(cors(corsOptions));
-
 app.use(express.json());
-
 app.use('/api/products', productsRouter);
 app.use('/api/users', usersRouter);
 

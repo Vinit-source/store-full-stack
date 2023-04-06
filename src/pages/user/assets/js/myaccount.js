@@ -1,13 +1,12 @@
-// $(function () {
-//     $("#header").load("../../.../../pages/header.html");
-// });
-const userId = JSON.parse(window.localStorage.getItem("userId"));
-const profile = document.querySelector('.profile');
+// Header generation code - Refer header.js
 const title = document.querySelector('.store-title');
 
 title.addEventListener('click', () => {
     window.location.href = '../../../index.html';
 });
+
+const userId = JSON.parse(window.localStorage.getItem("userId"));
+const profile = document.querySelector('.profile');
 
 if (userId) {
     profile.innerHTML = `<i class="fa-solid fa-user fa-xl"></i>`;
@@ -50,13 +49,11 @@ if (userId) {
     profile.innerHTML = `<button onclick="window.location.href = './login.html'">Login</button>`;
 }
 
-
-
+// Main section code
 // Fetch and Render User's Orders 
 const ordersContainer = document.getElementById("user-orders");
 
 renderOrder = (order) => {
-    // Some code here   
     const orderCard = document.createElement('div');
     orderCard.classList.add('order-card');
 
@@ -107,19 +104,19 @@ renderOrder = (order) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const baseURL = "http://localhost:3000"
-    const response = fetch(`${baseURL}/api/users/${userId}`, {
+    fetch(`${baseURL}/api/users/${userId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     })
         .then(res => {
-            if (res.ok) {
-                alert('Success!');
+            // if (res.ok) {
+            //     alert('Success!');
 
-            } else {
-                alert('Failed.');
-            }
+            // } else {
+            //     alert('Failed.');
+            // }
             return res.json();
         })
         .then(data => {
