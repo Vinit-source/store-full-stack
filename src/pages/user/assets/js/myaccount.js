@@ -36,7 +36,7 @@ if (userId) {
     const logout = document.getElementById("logout");
     logout.addEventListener('click', () => {
         window.localStorage.removeItem("userId");
-        window.location.reload();
+        window.location.href = '../../../index.html';
     });
 
 
