@@ -1,3 +1,12 @@
+// A Model is a key component of backend development responsible for representing the application's data and business logic. 
+// For example, here the User model has three functions (also known as methods):
+// insertNew: Executes SQL query to insert the data of new user sent by the createUser controller and returns the status of the query.
+// verify: Gets the user login data from the verifyUser controller and performs the following tasks:
+// 			1. Executes SQL query to get customer_id and password of the existing customer. It uses UNIQUE column `phone` to find the customer from the customers table. 
+// 			2. Checks if the user is present in the customers table, and generates error if user not found.
+//			3. If the user is present in the customers table, it matches password and verifies user authorization.
+// getOrdersById: Executes SQL query to get the order details of the logged in customer. It takes userId as parameter sent by getUserOrders controller and returns the status of the query.. 
+
 const db = require('../utils/database');
 
 class User {
@@ -59,7 +68,21 @@ class User {
 				}
 			})
 	}
+
+	// Template Model method
+	static yourMethod(params_used_in_query, callback) {
+
+		db.query(`<YOUR-MYSQL-QUERY>`,
+			params_used_in_query,
+			(err, results) => {
+				if (err) {
+					callback(err, null);
+				} else {
+					callback(null, results);
+				}
+			})
+	}
 }
 
-// require('User.js') in any other file will load `User` class into that file.
+// require('userModel.js') in any other file will load `User` class into that file.
 module.exports = User;

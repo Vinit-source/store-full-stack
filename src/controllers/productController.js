@@ -1,5 +1,6 @@
-const Product = require('../models/Product');
+const Product = require('../models/productModel');
 
+// Controller function to get all products
 exports.getAllProducts = (req, res) => {
     Product.getAll((err, products) => {
         if (err) {

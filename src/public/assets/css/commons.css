@@ -27,6 +27,20 @@ header {
     flex-basis: 5rem;
 }
 
+.login-btn {
+    background-color: rgb(86, 86, 255);
+    color: white;
+    border-radius: 1rem;
+    width: 5rem;
+    height: 2rem;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+.login-btn:active {
+    background-color: blue;
+}
 
 .menu {
     display: none;
@@ -38,6 +52,7 @@ header {
     position: absolute;
     right: 10px;
     top: 50px;
+    background-color: white;
 
 }
 

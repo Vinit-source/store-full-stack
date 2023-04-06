@@ -46,7 +46,7 @@ if (userId) {
     });
 
 } else {
-    profile.innerHTML = `<button onclick="window.location.href = './login.html'">Login</button>`;
+    profile.innerHTML = `<button class="login-btn" onclick="window.location.href = './login.html'">Login</button>`;
 }
 
 // Main section code
@@ -68,7 +68,10 @@ renderOrder = (order) => {
     orderDateLabel.textContent = "Order Date: ";
     const orderDate = document.createElement('p');
     orderDate.classList.add('order-date');
-    orderDate.textContent = order.order_date;
+    const date = new Date(order.order_date);
+    const formattedDate = date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+    console.log(formattedDate); // Output: "04/06/2023"
+    orderDate.textContent = formattedDate;
     orderDateDiv.appendChild(orderDateLabel);
     orderDateDiv.appendChild(orderDate);
 

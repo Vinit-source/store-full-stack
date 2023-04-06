@@ -58,5 +58,5 @@ if (userId) {
     // If userId is not present in the localStorage then user has not logged in
     // If user has not logged in, display Login button
 } else {
-    profile.innerHTML = `<button onclick="window.location.href = './src/pages/user/login.html'">Login</button>`;
+    profile.innerHTML = `<button class="login-btn" onclick="window.location.href = './src/pages/user/login.html'">Login</button>`;
 }
